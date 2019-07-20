@@ -39,7 +39,7 @@ docker run -d my-cool-app
 
 ## Prebuilt image
 You can use a prebuilt Docker image from [Dockerhub](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka):
-```
+```dockerfile
 FROM maslick/minimalka:jdk11
 WORKDIR /app
 EXPOSE 8080

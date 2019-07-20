@@ -6,6 +6,13 @@ lightweight Docker image for JDK11 micro-services
 [![Docker pulls](https://img.shields.io/docker/pulls/maslick/minimalka.svg?color=green)](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
+
+## Features
+* lightweight (~55Mb + your jar)
+* free JDK distribution from [Amazon Corretto 11.0.4](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
+* prebuilt image on [Dockerhub](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka)
+* you can also build it yourself (see [Dockerfile](Dockerfile))
+
 ## Build
 ```bash
 docker build -t my-minimalka:jdk11 .

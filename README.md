@@ -39,5 +39,5 @@ git clone https://github.com/maslick/minimalka.git
 cd minimalka/demo
 ./gradlew dockerBuild
 docker run -d -p 8080:8081 -e JAVA_OPTIONS=-Dserver.port=8081 minimalka-boot
-open open http://`docker-machine ip default`:8080/helloworld
+open http://`docker-machine ip default`:8080/helloworld
 ```

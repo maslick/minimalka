@@ -1,11 +1,11 @@
 # =minimalka=
+lightweight Docker image for JDK11 micro-services
+
+
 [![Docker image](https://img.shields.io/microbadger/image-size/maslick/minimalka/latest.svg)](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka)
 [![Docker layers](https://img.shields.io/microbadger/layers/maslick/minimalka.svg?color=yellow)](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka)
 [![Docker pulls](https://img.shields.io/docker/pulls/maslick/minimalka.svg?color=green)](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-
-lightweight Docker image for JDK11 micro-services
-
 
 
 ## Features

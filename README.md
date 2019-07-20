@@ -1,4 +1,4 @@
-# minimalka
+# =minimalka=
 lightweight Docker image for JDK11 micro-services
 
 [![Docker image](https://img.shields.io/microbadger/image-size/maslick/minimalka/latest.svg)](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka)

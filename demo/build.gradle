@@ -32,7 +32,7 @@ task createDockerfile(type: Dockerfile) {
 check.dependsOn createDockerfile
 
 task dockerBuild(type: Exec) {
-    commandLine 'docker', 'build', '-t', "maslick/minimalka-boot", 'build/libs'
+    commandLine 'docker', 'build', '-t', "minimalka-boot", 'build/libs'
     dependsOn build
     test.enabled = false
 }

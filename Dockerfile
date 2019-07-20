@@ -13,13 +13,9 @@ ENV JAVA_MINIMAL="${OPT}/java-minimal"
 # downlodad JDK to the local file
 ADD "$JDK_URL" "$JDK_ARJ_FILE"
 
-
 # extract JDK and add to PATH
-RUN { \
-        echo "Unpack downloaded JDK to ${JAVA_HOME}/:" && \
-        mkdir -p "$OPT" && \
-        tar xf "$JDK_ARJ_FILE" -C "$OPT" ; \    
-	}
+RUN mkdir -p "$OPT" && \
+    tar xf "$JDK_ARJ_FILE" -C "$OPT" ;
 
 ENV PATH="$PATH:$JAVA_HOME/bin"
 

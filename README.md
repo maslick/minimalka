@@ -13,6 +13,7 @@ lightweight Docker image for JDK11 micro-services
 * using free JDK11 distribution from [Amazon Corretto 11.0.4](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
 * prebuilt image on [Dockerhub](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka)
 * you can also build it yourself (see [Dockerfile](Dockerfile))
+* S2i image (Openshift "runner" image)
 
 ## Build
 ```bash
@@ -32,8 +33,8 @@ CMD java $JAVA_OPTIONS -jar app.jar
 
 Build and run:
 ```bash
-docker build -t my-cool-app .
-docker run -d my-cool-app
+docker build -t mycoolapp:latest .
+docker run -d mycoolapp:latest
 ```
 
 
@@ -59,4 +60,17 @@ cd minimalka/demo
 ./gradlew dockerBuild
 docker run -d -p 8080:8081 -e JAVA_OPTIONS=-Dserver.port=8081 minimalka-boot
 open http://`docker-machine ip default`:8080/helloworld
+```
+
+## Openshift binary build
+```bash
+oc new-build --name minimalka-runtime --docker-image maslick/minimalka-s2i --binary=true
+oc start-build minimalka-runtime --from-file my-cool-app.jar
+oc new-app minimalka-runtime --name my-cool-app
+oc expose svc my-cool-app
+```
+
+## S2i binary build
+```bash
+s2i build . maslick/minimalka-s2i mycoolapp:latest
 ```

@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+set -e
+java $JAVA_OPTIONS -jar ./app.jar

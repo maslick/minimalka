@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+cp -Rf /tmp/src/*.jar ./app.jar

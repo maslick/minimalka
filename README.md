@@ -38,8 +38,19 @@ docker run -d my-cool-app
 
 
 ## Prebuilt image
-You can use a prebuilt Docker image from [Dockerhub](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka)
+You can use a prebuilt Docker image from [Dockerhub](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka):
+```
+FROM maslick/minimalka:jdk11
+WORKDIR /app
+EXPOSE 8080
+COPY my-cool-app.jar ./app.jar
+CMD java $JAVA_OPTIONS -jar app.jar
+```
 
+```bash
+docker build -t my-cool-app .
+docker run -d my-cool-app
+```
 
 ## Demo
 ```bash

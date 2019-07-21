@@ -44,7 +44,6 @@ COPY my-cool-app.jar ./app.jar
 CMD java $JAVA_OPTIONS -jar app.jar
 ```
 
-Build and run:
 ```bash
 docker build -t my-cool-app .
 docker run -d my-cool-app:latest

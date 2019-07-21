@@ -63,6 +63,7 @@ This s2i image supports binary builds only. Meaning that the build stage doesn't
 ```bash
 s2i build . maslick/minimalka-s2i mycoolapp:latest
 ```
+More or less it works in the same way as the Docker multistage builds. The resulting image is production ready and does not have the root privilage escalation flaw.
 
 ## Integration with Openshift
 In a typical use-case you would have a Jenkins pipeline with several stages: ``checkout``, ``build``, ``test``, ``Build Docker image``, ``Deploy to dev``. During the ``Build Docker image`` stage you inject the already built jar (build stage) into the  ``build config`` and start the build.

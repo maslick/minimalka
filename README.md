@@ -12,7 +12,8 @@ lightweight Docker image for JDK11 micro-services
 * lightweight (~55Mb + your jar)
 * uses free JDK11 distribution from [Amazon Corretto 11.0.4](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
 * prebuilt image on [Dockerhub](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka) or build your own (see [Dockerfile](Dockerfile))
-* [S2i image](https://cloud.docker.com/repository/docker/maslick/minimalka-s2i) (Openshift "runner" [image](s2i/Dockerfile))
+* S2i image: [Dockerhub](https://cloud.docker.com/repository/docker/maslick/minimalka-s2i), [Dockerfile](s2i/Dockerfile)
+* Integration with Openshift
 
 ## Usage
 Given your application jar is named ``my-cool-app.jar``, create a Dockerfile with the following contents:

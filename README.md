@@ -58,15 +58,18 @@ docker run -d -p 8080:8081 -e JAVA_OPTIONS=-Dserver.port=8081 minimalka-boot
 open http://`docker-machine ip default`:8080/helloworld
 ```
 
-## Openshift binary build
+## S2i binary build
+This s2i image supports binary builds only. Meaning that the build stage doesn't build your jars, instead you provide already built artifacts. ***Minimalka s2i image*** will just check and copy your binaries into the resulting lightweight image.
+```bash
+s2i build . maslick/minimalka-s2i mycoolapp:latest
+```
+
+## Integration with Openshift
+In a typical use-case you would have a Jenkins pipeline with several stages: ``checkout``, ``build``, ``test``, ``Build Docker image``, ``Deploy to dev``. During the ``Build Docker image`` stage you inject the already built jar (build stage) into the  ``build config`` and start the build.
+
 ```bash
 oc new-build --name minimalka-runtime --docker-image maslick/minimalka-s2i --binary=true
 oc start-build minimalka-runtime --from-file my-cool-app.jar
 oc new-app minimalka-runtime --name my-cool-app
 oc expose svc my-cool-app
-```
-
-## S2i binary build
-```bash
-s2i build . maslick/minimalka-s2i mycoolapp:latest
 ```

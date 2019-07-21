@@ -10,7 +10,7 @@ lightweight Docker image for JDK11 micro-services
 
 ## Features
 * lightweight (~55Mb + your jar)
-* using free JDK11 distribution from [Amazon Corretto 11.0.4](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
+* uses free JDK11 distribution from [Amazon Corretto 11.0.4](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
 * prebuilt image on [Dockerhub](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka) or build your own (see [Dockerfile](Dockerfile))
 * [S2i image](https://cloud.docker.com/repository/docker/maslick/minimalka-s2i) (Openshift "runner" [image](s2i/Dockerfile))
 

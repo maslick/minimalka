@@ -14,31 +14,8 @@ lightweight Docker image for JDK11 micro-services
 * prebuilt image on [Dockerhub](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka) or build your own (see [Dockerfile](Dockerfile))
 * [S2i image](https://cloud.docker.com/repository/docker/maslick/minimalka-s2i) (Openshift "runner" [image](s2i/Dockerfile))
 
-## Build
-```bash
-docker build -t my-minimalka:jdk11 .
-```
-
-
 ## Usage
 Given your application jar is named ``my-cool-app.jar``, create a Dockerfile with the following contents:
-```dockerfile
-FROM my-minimalka:jdk11
-WORKDIR /app
-EXPOSE 8080
-COPY my-cool-app.jar ./app.jar
-CMD java $JAVA_OPTIONS -jar app.jar
-```
-
-Build and run:
-```bash
-docker build -t mycoolapp:latest .
-docker run -d mycoolapp:latest
-```
-
-
-## Prebuilt image
-You can use a prebuilt Docker image from [Dockerhub](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka):
 ```dockerfile
 FROM maslick/minimalka:jdk11
 WORKDIR /app
@@ -49,7 +26,28 @@ CMD java $JAVA_OPTIONS -jar app.jar
 
 ```bash
 docker build -t my-cool-app .
-docker run -d my-cool-app
+docker run -d my-cool-app:latest
+```
+
+## Customize and build your own image
+```bash
+git clone https://github.com/maslick/minimalka.git && cd minimalka
+vim Dockerfile
+docker build -t my-minimalka:jdk11 .
+```
+
+```dockerfile
+FROM my-minimalka:jdk11
+WORKDIR /app
+EXPOSE 8080
+COPY my-cool-app.jar ./app.jar
+CMD java $JAVA_OPTIONS -jar app.jar
+```
+
+Build and run:
+```bash
+docker build -t my-cool-app .
+docker run -d my-cool-app:latest
 ```
 
 ## Demo

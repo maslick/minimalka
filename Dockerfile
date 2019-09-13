@@ -23,7 +23,7 @@ ENV PATH="$PATH:$JAVA_HOME/bin"
 RUN jlink \
     --verbose \
     --add-modules \
-        java.base,java.sql,java.naming,java.desktop,java.management,java.security.jgss,java.instrument \
+        java.base,java.sql,java.naming,java.desktop,java.management,java.security.jgss,java.instrument,jdk.unsupported \
     --compress 2 \
     --strip-debug \
     --no-header-files \

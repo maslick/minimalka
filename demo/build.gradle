@@ -21,7 +21,7 @@ dependencies {
 import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 task createDockerfile(type: Dockerfile) {
     destFile = project.file('build/libs/Dockerfile')
-    from 'minimalka:jdk11'
+    from 'maslick/minimalka:jdk11'
     instruction 'LABEL maintainer="pavel.masloff@gmail.com"'
     exposePort 8080
     workingDir '/app'

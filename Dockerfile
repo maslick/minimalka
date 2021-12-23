@@ -1,7 +1,7 @@
 FROM debian:stretch-slim as packager
 
-ENV JDK_VERSION="11.0.5.10.1"
-ENV JDK_URL="https://d3pxv6yz143wms.cloudfront.net/${JDK_VERSION}/amazon-corretto-${JDK_VERSION}-linux-x64.tar.gz"
+ENV JDK_VERSION="11.0.13.8.1"
+ENV JDK_URL="https://corretto.aws/downloads/resources/${JDK_VERSION}/amazon-corretto-${JDK_VERSION}-linux-x64.tar.gz"
 ENV JDK_ARJ_FILE="openjdk-${JDK_VERSION}.tar.gz"
 
 # target JDK installation names

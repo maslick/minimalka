@@ -2,15 +2,15 @@
 lightweight Docker image for JDK11 micro-services
 
 
-[![image size](https://img.shields.io/badge/image%20size-53MB-blue.svg)](https://hub.docker.com/r/maslick/minimalka)
+[![image size](https://img.shields.io/badge/image%20size-56MB-blue.svg)](https://hub.docker.com/r/maslick/minimalka)
 [![Docker layers](https://img.shields.io/microbadger/layers/maslick/minimalka.svg?color=yellow)](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka)
 [![Docker pulls](https://img.shields.io/docker/pulls/maslick/minimalka.svg?color=green)](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 
 ## Features
-* lightweight (~55Mb + your jar)
-* uses free JDK11 distribution from [Amazon Corretto 11.0.4](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
+* lightweight (~56Mb + your jar)
+* uses free JDK11 distribution from [Amazon Corretto 11.0.13](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
 * prebuilt image on [Dockerhub](https://cloud.docker.com/u/maslick/repository/docker/maslick/minimalka) or build your own (see [Dockerfile](Dockerfile))
 * s2i image: [Dockerhub](https://cloud.docker.com/repository/docker/maslick/minimalka-s2i), [Dockerfile](s2i/Dockerfile)
 * integration with Openshift
@@ -51,12 +51,22 @@ docker run -d my-cool-app:latest
 ```
 
 ## Demo
+Install Corretto 11 JDK and use jenv to switch to it in your shell:
+```bash
+$ jenv add /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+$ jenv shell corretto64-11.0.13
+$ java -version
+openjdk version "11.0.13" 2021-10-19 LTS
+OpenJDK Runtime Environment Corretto-11.0.13.8.1 (build 11.0.13+8-LTS)
+OpenJDK 64-Bit Server VM Corretto-11.0.13.8.1 (build 11.0.13+8-LTS, mixed mode)
+```
+
 ```bash
 git clone https://github.com/maslick/minimalka.git
 cd minimalka/demo
 ./gradlew dockerBuild
 docker run -d -p 8080:8081 -e JAVA_OPTIONS=-Dserver.port=8081 minimalka-boot
-open http://`docker-machine ip default`:8080/helloworld
+open http://localhost:8080/helloworld
 ```
 
 ## S2i binary build
